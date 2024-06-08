@@ -7,7 +7,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 public class User
 {
     [Key]
-    public int Id { get; }
+    public int Id { get; set; }
     public string Username { get; set; }
 
     public User(string username)

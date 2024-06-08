@@ -26,7 +26,7 @@ public class MainController : ControllerBase
 
     // Get user account
     [HttpGet("account/{userId:int}")]
-    public ActionResult Get(int userId)
+    public ActionResult GetAccount(int userId)
     {
 	var res = new Dictionary<String, object>();
 	var user = _context.Users.ToList<User>().SingleOrDefault(u => u.Id == userId);

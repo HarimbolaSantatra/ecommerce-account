@@ -1,5 +1,4 @@
 using Microsoft.EntityFrameworkCore;
-using MySql.EntityFrameworkCore;
 
 namespace Account;
 
