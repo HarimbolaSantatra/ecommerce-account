@@ -14,7 +14,9 @@ public class AppDbContext : DbContext
 
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
     {
-	optionsBuilder.UseMySQL("server=localhost;database=account_microservice;user=root;password=root");
+	var DbHost = Environment.GetEnvironmentVariable("DB_HOST");
+	if (DbHost == null) DbHost = "localhost";
+	optionsBuilder.UseMySQL($"server={DbHost};database=account_microservice;user=root;password=root");
     }
 
 }

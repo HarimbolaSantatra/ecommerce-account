@@ -13,8 +13,9 @@ docker run -itd \
     -p $exposed_port:$container_port \
     --rm \
     --name $container_name \
+    --env DB_HOST="192.168.56.1" \
     $image
 
-echo ""
-echo "===== Container running:"
-docker ps | grep $container_name
+echo "====================="
+echo "===== Container logs:"
+docker logs -f $container_name
