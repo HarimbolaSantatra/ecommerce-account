@@ -24,6 +24,23 @@ public class MainController : ControllerBase
 	return new JsonResult(res);
     }
 
+    [HttpGet("accounts")]
+    public ActionResult GetAllAccounts()
+    {
+	var res = new Dictionary<String, object>();
+	var users = _context.Users.ToList<User>();
+	if (users == null )
+	{
+	    res.Add("status", "null");
+	}
+	else
+	{
+	    res.Add("status", "ok");
+	    res.Add("users", users);
+	}
+	return new JsonResult(res);
+    }
+
     // Get user account
     [HttpGet("account/{userId:int}")]
     public ActionResult GetAccount(int userId)
