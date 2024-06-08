@@ -44,10 +44,10 @@ public class MainController : ControllerBase
 
     // Add user account
     [HttpPost("account/add")]
-    public ActionResult Add(User user)
+    public ActionResult AddAccount(User user)
     {
 	var res = new Dictionary<String, object>();
-	_context.Add(new User(user.Username));
+	_context.Add(user);
 	_context.SaveChanges();
 	res.Add("status", "added");
 	res.Add("user", user);
