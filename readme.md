@@ -3,30 +3,16 @@ The microservice *Account* for the [e-commerce microservice](https://gitlab.com/
 It's a REST API.
 
 ## Setup
-### Developpement installation
-#### Docker
+### Docker
 Run the container with:
 
-    ./docker.sh
+    ./docker.sh "127.0.0.1"
 
-This script compile the code, build the image and then run the container on locahost using the database *192.168.56.1*.
+The script takes one optional argument: the host of the database. If it is no provided, *172.17.0.1* is used (a random default gateway for a docker container).
+It compiles the code, build the image and then run the container on locahost.
 
-#### Dotnet
+### Dotnet
 To simply run it on dotnet CLI: `dotnet run`. It will be exposed on *localhost*, port 5010.
-
-### Production installation
-For a more robust installation, run on docker and specify the *DB_HOST* environment variable manually.
-
-An example of a production script is:
-
-    dotnet publish --output /out
-    docker build -t account_mcs
-    docker run -itd \
-        -p 5010:8080 \
-        --rm \
-        --name account_mcs \
-        --env DB_HOST="192.168.56.1" \
-        account_mcs
 
 ### Reset the database
 To reset the database and the migration, run `./reset-migration.sh`.

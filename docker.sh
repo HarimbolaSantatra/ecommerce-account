@@ -1,5 +1,10 @@
 #!/bin/bash
 set -e
+if [ $# -eq 1 ];then
+    db_host=$1
+else
+    db_host="172.17.0.1"
+fi
 image="account_mcs"
 container_name="account_mcs"
 output_dir="out"
@@ -13,7 +18,7 @@ docker run -itd \
     -p $exposed_port:$container_port \
     --rm \
     --name $container_name \
-    --env DB_HOST="192.168.56.1" \
+    --env DB_HOST="$db_host" \
     $image
 
 echo "====================="
