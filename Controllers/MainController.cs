@@ -64,6 +64,13 @@ public class MainController : ControllerBase
     public ActionResult AddAccount(User user)
     {
 	var res = new Dictionary<String, object>();
+	// Check if user exists
+	if (_context.Users.Any(u => u == user))
+	{
+	    res.Add("status", "userExist");
+	    res.Add("description", "Error: user already exist!");
+	    return new JsonResult(res);
+	}
 	_context.Add(user);
 	_context.SaveChanges();
 	res.Add("status", "added");
