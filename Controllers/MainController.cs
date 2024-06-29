@@ -78,4 +78,25 @@ public class MainController : ControllerBase
 	return new JsonResult(res);
     }
 
+    // Delete user
+    [HttpGet("account/delete")]
+    public JsonResult DeleteAccount(int userId)
+    {
+	var res = new Dictionary<String, object>();
+	// Check if user exist
+	var user = _context.Users.SingleOrDefault(u => u.Id == userId);
+	if (user == null)
+	{
+	    res.Add("status", "userNotExist");
+	    res.Add("description", $"Error! The user with id {userId} does not exist!");
+	    return new JsonResult(res);
+	}
+	_context.Remove(user);
+	_context.SaveChanges();
+	res.Add("status", "deleted");
+	res.Add("user", user);
+	return new JsonResult(res);
+    }
+
+
 }
