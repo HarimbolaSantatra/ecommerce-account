@@ -1,6 +1,7 @@
 # ACCOUNT SERVICE
 The microservice *Account* for the [e-commerce microservice](https://gitlab.com/HarimbolaSantatra/ecommerce-microservices).
 It's a REST API.
+
 ## Setup
 ### Developpement installation
 #### Docker
@@ -30,7 +31,7 @@ An example of a production script is:
 ### Reset the database
 To reset the database and the migration, run `./reset-migration.sh`.
 
-## Usage
+## API Usage
 ### Exposed endpoint
 Here's a list of all exposed endpoint of the API:
 Endpoint | HTTP Method | Description | Method
@@ -38,7 +39,18 @@ Endpoint | HTTP Method | Description | Method
 `/` | get | Test if the service is working | Get
 `accounts` | get | Get all existing account | GetAllAccounts
 `account/<userId>` | get | Get one user's account | GetAccount
-`account/add` | post | Add a user account | AddAccount
+`account/add` | post | Add a user account (See body data below) | AddAccount
+`account/delete?userId=3` | get | Delete a user account | DeleteAccount
 
-## Feature
-- [ ] CI/CD pipeline with Gitlab CI
+### Body data
+#### AddAccount
+```json
+{
+    "Id": 3,
+    "Username": "Gal"
+}
+```
+
+### About the project
+- Database: mariadb
+- Database name: *account_microservice*
