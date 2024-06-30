@@ -1,2 +1,3 @@
+- implement: check if account exists
 - CI/CD pipeline with Gitlab CI
 
