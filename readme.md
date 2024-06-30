@@ -2,7 +2,7 @@
 The microservice *Account* for the [e-commerce microservice](https://gitlab.com/HarimbolaSantatra/ecommerce-microservices).
 It's a REST API.
 
-## Setup
+## Setup development environment
 ### Docker
 Run the container with:
 
@@ -16,6 +16,9 @@ To simply run it on dotnet CLI: `dotnet run`. It will be exposed on *localhost*,
 
 ### Reset the database
 To reset the database and the migration, run `./reset-migration.sh`.
+
+## Setup production environment
+Visit the [master repo][1] to view instructions.
 
 ## API Usage
 ### Exposed endpoint
@@ -40,3 +43,6 @@ Endpoint | HTTP Method | Description | Method
 ### About the project
 - Database: mariadb
 - Database name: *account_microservice*
+
+---
+[1]: https://gitlab.com:HarimbolaSantatra/ecommerce-microservices
