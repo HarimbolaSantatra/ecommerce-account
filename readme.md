@@ -6,7 +6,7 @@ It's a REST API.
 ### Docker
 Run the container with:
 
-    ./docker.sh "127.0.0.1"
+    ./docker.sh "172.17.0.1"
 
 The script takes one optional argument: the host of the database. If it is no provided, *172.17.0.1* is used (a random default gateway for a docker container).
 It compiles the code, build the image and then run the container on locahost.
