@@ -24,6 +24,12 @@ public class MainController : ControllerBase
 	return new JsonResult(res);
     }
 
+    [HttpGet("status")]
+    public string GetStatus()
+    {
+	return "Account microservice is working!";
+    }
+
     [HttpGet("accounts")]
     public ActionResult GetAllAccounts()
     {
